@@ -1,0 +1,16 @@
+<h1>Create New Product</h1>
+<form action="/products/new" method='post'>
+    <label>Name:
+        <input type="string" name='name' id=''>
+    </label>
+    <label>Price:
+        <input type="number" name='price' id=''>
+    </label>
+    <label>Inventory:
+        <input type="number" name='inventory' id=''>
+    </label>
+    <label>
+        <input type="submit" name='submit' id=''>
+    </label>
+</form>
+<br>{{>footer}}

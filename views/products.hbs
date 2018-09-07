@@ -1,0 +1,10 @@
+<h1>Products:</h1>
+{{#each items}}
+<div class='product-icon'>
+    <img src="../img/{{id}}.png" class='icon'>
+    <a href="/products/{{id}}">{{name}}</a>
+</div>
+{{/each}}
+
+<br>
+<a href="/newproduct">New Item</a>
