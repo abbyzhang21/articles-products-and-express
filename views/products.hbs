@@ -1,5 +1,5 @@
 <h1>Products:</h1>
-{{#each items}}
+{{#each item}}
 <div class='product-icon'>
     <img src="../img/{{id}}.png" class='icon'>
     <a href="/products/{{id}}">{{name}}</a>
@@ -8,3 +8,4 @@
 
 <br>
 <a href="/newproduct">New Item</a>
+<br>{{>footer}}

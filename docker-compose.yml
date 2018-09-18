@@ -1,4 +1,5 @@
-version: "3"
+version: '3'
 services:
   my-app:
     build: .
+    image: abbyz/docker-abby:${IMAGE_VERSION}-local

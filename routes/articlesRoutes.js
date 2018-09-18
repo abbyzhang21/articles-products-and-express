@@ -49,12 +49,34 @@ Router.get('/editarticles', (req, res) => {
 })
 Router.put('/articles/:title/edit', (req, res) => {
     const { title } = req.body;
+    const { body } = req.body;
     console.log('title.....', title);
+    console.log('body.....', body);
     // let random = DS_Art._storage[0];
     let test = DS_Art.getArtByTitle(title);
     console.log('not so random', test);
-    if (title == '')
-        res.redirect('/articles');
+    if (article.title !== info.title) {
+        article.title = info.title;
+    }
+    if (article.author !== info.author) {
+        article.author = infor.author;
+    }
+    if (article.description !== info.description) {
+        article.description = info.description;
+    }
+    res.redirect('/articles/${title}');
+});
+Router.get('/articles/:title/delete', (req, res) => {
+    if (!authorized) {
+        res.redirect('/login');
+    } else {
+        const { title } = req.params;
+        console.log('deleted article', title);
+        const article = DS_Art.getArtByTitle(title);
+        console.log('works?');
+        DS_Art.deleteArtByTitle(article.title);
+        const articles = DS_Art.all();
+        res.render('articles', { articles });
+    }
 })
-
 module.exports = Router;

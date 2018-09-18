@@ -1,6 +1,8 @@
 <div id='p-container'>
     <h1>{{name}}</h1>
-    <div id='price'><img src="http://bestanimations.com/Money/Dollars/dollar-sign-symbol-14.gif?">{{price}}</div>
-    <div id='inventory'><img src="https://covdblog.files.wordpress.com/2015/04/custom_clipboard_check_em_15372.gif?">{{Inventory}}</div>
+    <div id='price'><img src="http://bestanimations.com/Money/Dollars/dollar-sign-symbol-14.gif?">{{description}}</div>
+    <div id='inventory'><img src="https://covdblog.files.wordpress.com/2015/04/custom_clipboard_check_em_15372.gif?">{{created_at}}</div>
+    <a href="/products/{{id}}/delete"><button>Delete</button></a>
+    <a href="/products/{{id}}/edit"><button>Edit</button></a>
     <br>{{>footer}}
 </div>

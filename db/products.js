@@ -1,51 +1,22 @@
 class product {
     constructor() {
-        this._count = 1;
-        this._storage = []
-        this.add({
-            name: 'GENIUS Liquid Collagen',
-            price: 115,
-            Inventory: 20
-        })
-        this.add({
-            name: 'Squalane + Peptide Eye Gel',
-            price: 54,
-            Inventory: 30
-        })
-        this.add({
-            name: 'T.L.C. Framboos Glycolic',
-            price: 90,
-            Inventory: 25
-        })
-        this.add({
-            name: 'Rose Deep Hydration Facial',
-            price: 44,
-            Inventory: 70
-        })
-        this.add({
-            name: 'Creme de la Mer',
-            price: 175,
-            Inventory: 12
-        })
-        this.add({
-            name: 'Facial Treatment Essence',
-            price: 179,
-            Inventory: 96
-        })
+        this.knex = require('../knex/knex.js');
     }
     all() {
-        return [...this._storage];
+        return this.knex.raw('SELECT * FROM items');
     }
     getItemById(id) {
-        return this._storage.filter(item => id == item.id)[0]
+        return this.knex.raw(`SELECT * FROM items WHERE id = ${id}`)
     }
-    add(item) {
-        item.id = this._count
-        this._storage.push(item)
-        this._count++
-        return item.id;
+    add(prod) {
+        return this.knex.raw(`INSERT INTO items(name, description) VALUES('${prod.name}','${prod.description}')`)
     }
-    updateItemById(id) { }
-    deleteItemById(id) { }
+    updateItemById(id, prods) {
+        // getItemById(id);
+        return this.knex.raw(`UPDATE items SET getItemById().name =${prods.name}  WHERE id=${id}`)
+    }
+    deleteItemById(id) {
+        return this.knex.raw(`DELETE FROM items WHERE id = ${id}`)
+    }
 }
 module.exports = product;
