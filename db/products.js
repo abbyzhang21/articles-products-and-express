@@ -11,9 +11,11 @@ class product {
     add(prod) {
         return this.knex.raw(`INSERT INTO items(name, description) VALUES('${prod.name}','${prod.description}')`)
     }
-    updateItemById(id, prods) {
+    updateItemById(id, products) {
         // getItemById(id);
-        return this.knex.raw(`UPDATE items SET getItemById().name =${prods.name}  WHERE id=${id}`)
+        console.log('~~~~~~~', products)
+        console.log('~~~', products.title)
+        return this.knex.raw(`UPDATE items SET name ='${products.title}',description= '${products.body}'  WHERE id=${id}`)
     }
     deleteItemById(id) {
         return this.knex.raw(`DELETE FROM items WHERE id = ${id}`)

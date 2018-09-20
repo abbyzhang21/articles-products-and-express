@@ -1,10 +1,12 @@
 exports.up = function (knex, Promise) {
     return knex.schema.createTable('items', function (table) {
         table.increments();
-        table.string('name').notNullable();
-        table.string('description').notNullable();
-        table.timestamp('created_at').defaultTo(knex.fn.now())
-        table.timestamp('updated_at').defaultTo(knex.fn.now())
+        table.string('title').notNullable();
+        table.string('body').notNullable();
+        table.string('author').notNullable();
+
+        // table.timestamp('created_at').defaultTo(knex.fn.now())
+        // table.timestamp('updated_at').defaultTo(knex.fn.now())
     })
 }
 

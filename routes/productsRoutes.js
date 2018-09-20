@@ -80,15 +80,16 @@ Router.get("/products/:id/edit", (req, res) => {
 Router.post('/products/:id/edit', (req, res) => {
     // console.log(req.body);
 
-    const prods = req.body;
-    console.log("title.....", prods.title);
+    // const prods = req.body;
+    // console.log("title.....", prods.title);
     const { id } = req.params;
-    console.log('tis is not just id', id)
-    DS_Prod.updateItemById(prods)
+    // console.log('tis is not just id', id)
+    DS_Prod.updateItemById(id, req.body)
         .then(result => {
 
             const products = result.rows[0]
-            console.log('this is product', products)
+            console.log('the products....', products);
+            console.log('this is product', req.body)
             res.redirect('/products')
         })
         .catch(err => {

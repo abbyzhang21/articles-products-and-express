@@ -5,9 +5,9 @@ exports.seed = function (knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('items').insert([
-        { name: 'Apple of Doom', description: 'Rains down sploding applez!!' },
-        { name: 'Banana Peel of Extinction', description: 'Extincts all players in 10 meter radius.' },
-        { name: 'Pineapple Blades of Paradise', description: 'Inflicts cutting damage and sends target to "Paradise"' }
+        { title: 'Apple of Doom', body: 'Rains down sploding applez!!' },
+        { title: 'Banana Peel of Extinction', body: 'Extincts all players in 10 meter radius.' },
+        { title: 'Pineapple Blades of Paradise', body: 'Inflicts cutting damage and sends target to "Paradise"' }
       ]);
     });
 };
